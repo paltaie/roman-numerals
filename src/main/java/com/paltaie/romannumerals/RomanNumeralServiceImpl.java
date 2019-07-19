@@ -6,16 +6,16 @@ import java.util.stream.IntStream;
 
 public class RomanNumeralServiceImpl implements RomanNumeralService {
 
-    private Map<String, Integer> romanToDigit;
+    private Map<String, Integer> romanToNumeral;
 
     public RomanNumeralServiceImpl() {
-        this.romanToDigit = new HashMap<>();
+        this.romanToNumeral = new HashMap<>();
 
-        IntStream.range(0, 4000).forEach(i -> romanToDigit.put(decimalToRoman(i), i));
+        IntStream.range(0, 4000).forEach(i -> romanToNumeral.put(decimalToRoman(i), i));
     }
 
     public int romanToDecimal(String roman) {
-        final Integer decimal = romanToDigit.get(roman);
+        final Integer decimal = romanToNumeral.get(roman);
         if (decimal == null) {
             throw new IllegalArgumentException("Cannot convert: " + roman);
         }
